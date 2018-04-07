@@ -45,7 +45,7 @@ public class HeroesExpansion extends PlaceholderExpansion implements Cacheable, 
         Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin(getPlugin());
         if (plugin == null) return false;
         heroes = (Heroes) plugin;
-        return heroes != null;
+        return true;
     }
 
     @Override
@@ -97,13 +97,13 @@ public class HeroesExpansion extends PlaceholderExpansion implements Cacheable, 
         switch (param) {
             // %heroes_mana%
             case "mana":
-                return hero != null ? str(hero.getMana()) : "";
+                return str(hero.getMana());
             // %heroes_hero_level%
             case "hero_level":
-                return hero != null ? str(hero.getHeroLevel()) : "";
+                return str(hero.getHeroLevel());
             // %heroes_heroclass_name%
             case "heroclass_name":
-                return hero != null ? str(hero.getHeroClass().getName()) : "";
+                return hero.getHeroClass().getName();
         }
 
 
@@ -127,9 +127,6 @@ public class HeroesExpansion extends PlaceholderExpansion implements Cacheable, 
             // %heroes_party_leader_mana%
             case "party_leader_mana":
                 return str(hero.getParty().getLeader().getMana());
-            // %heroes_heroclass_name%
-            case "heroclass_name":
-                return hero != null ? str(hero.getHeroClass().getName()) : "";
         }
 
 
