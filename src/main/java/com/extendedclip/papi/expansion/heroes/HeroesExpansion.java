@@ -34,7 +34,7 @@ import com.herocraftonline.heroes.characters.Hero;
 
 import java.util.Map;
 
-public class HeroesExpansion extends PlaceholderExpansion implements Cacheable, Configurable {
+public class HeroesExpansion extends PlaceholderExpansion implements Cacheable {
 
     private Heroes heroes;
 
@@ -129,22 +129,12 @@ public class HeroesExpansion extends PlaceholderExpansion implements Cacheable, 
                 return str(hero.getParty().getLeader().getMana());
         }
 
-
-
-        // just to test
-
-
         return null;
     }
 
     @Override
     public void clear() {
         heroes = null;
-    }
-
-    @Override
-    public Map<String, Object> getDefaults() {
-        return null;
     }
 
     private String str(Object o) {
