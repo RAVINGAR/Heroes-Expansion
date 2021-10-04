@@ -22,17 +22,15 @@ package com.extendedclip.papi.expansion.heroes;
 
 import com.herocraftonline.heroes.characters.skill.Skill;
 import me.clip.placeholderapi.expansion.Cacheable;
-import me.clip.placeholderapi.expansion.Configurable;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 import com.herocraftonline.heroes.Heroes;
 import com.herocraftonline.heroes.characters.Hero;
-
-import java.util.Map;
 
 public class HeroesExpansion extends PlaceholderExpansion implements Cacheable {
 
@@ -42,7 +40,7 @@ public class HeroesExpansion extends PlaceholderExpansion implements Cacheable {
 
     @Override
     public boolean canRegister() {
-        Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin(getPlugin());
+        Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin(getRequiredPlugin());
         if (plugin == null) return false;
         heroes = (Heroes) plugin;
         return true;
@@ -54,7 +52,7 @@ public class HeroesExpansion extends PlaceholderExpansion implements Cacheable {
     }
 
     @Override
-    public String getPlugin() {
+    public String getRequiredPlugin() {
         return "Heroes";
     }
 
@@ -69,7 +67,8 @@ public class HeroesExpansion extends PlaceholderExpansion implements Cacheable {
     }
 
     @Override
-    public String onPlaceholderRequest(Player player, String param) {
+    public String onRequest(OfflinePlayer player, String param) {
+        Player p = (Player) player;
 
         // %heroes_skill_short_description_<skillname>%
         if (param.startsWith("skill_short_description_")) {
@@ -89,7 +88,7 @@ public class HeroesExpansion extends PlaceholderExpansion implements Cacheable {
 
         if (player == null) return "";
 
-        Hero hero = heroes.getCharacterManager().getHero(player);
+        Hero hero = heroes.getCharacterManager().getHero(p);
 
         if (hero == null) return "";
 
