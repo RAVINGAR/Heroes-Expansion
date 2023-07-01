@@ -25,8 +25,8 @@ These placeholders are related specifically the player used in context with them
 **%heroes_mastered_classes%** | *The number of classes a Hero has mastered*
 
 >**%heroes_party_leader_name%** | *Party Leader's Name*  
-**%heroes_party_leader_stamina%** | *Party Leader's Stamina Percentage*
-**%heroes_party_leader_mana%** | *Party Leader's Mana Percentage*
+**%heroes_party_leader_stamina%** | *Party Leader's Stamina Percentage*  
+**%heroes_party_leader_mana%** | *Party Leader's Mana Percentage*  
 **%heroes_party_size%** | *Number of Party Members*
 
 ### General Placeholders
