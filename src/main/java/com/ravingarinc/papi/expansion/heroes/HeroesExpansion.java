@@ -108,9 +108,12 @@ public class HeroesExpansion extends PlaceholderExpansion implements Cacheable {
             return String.valueOf(party.getMembers().size());
         });
 
-        addMapping("party_leader_", (hero, param) -> {
+        addMapping("party_leader", (hero, param) -> {
             final HeroParty party = hero.getParty();
             if(party == null) return "";
+            if(param.equals("party_leader")) {
+                return party.getLeader().getName();
+            }
             final String line = param.replace("party_leader_", "");
             final Hero leader = party.getLeader();
             switch (line) {
