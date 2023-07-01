@@ -1,8 +1,6 @@
 # Heroes-Expansion
 Expansion for the plugin Heroes https://www.spigotmc.org/resources/heroes-the-most-powerful-rpg-plugin.24734/
 
-[![Build Status](http://ci.extendedclip.com/job/Heroes-Expansion/badge/icon)](http://ci.extendedclip.com/job/Heroes-Expansion/)
-
 ### Player Placeholders
 These placeholders are related specifically the player used in context with them. If no player is used these placeholders will not work.
 
